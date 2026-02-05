@@ -1,0 +1,30 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'article'> {
+  icon: any
+  type: string
+  label: string
+  link: string
+}
+
+const { type, icon: Icon, link, label, class: classes, ...props } = Astro.props
+---
+
+<article
+  class={`relative group overflow-hidden lg:hover:scale-105 transition-transform duration-300  ${classes}`}
+  {...props}>
+  <a
+    href={link}
+    class='p-4 gap-4 bg-white h-full shadow-lg flex items-center justify-start rounded-md'>
+    <div
+      class='text-secondary mb-2 size-12 flex items-center justify-center
+    rounded-md bg-secondary-light/25 xl:size-14 shrink-0'>
+      <Icon class='size-5 xl:size-8' />
+    </div>
+    <div>
+      <h4 class='text-sm font-semibold mb-1 lg:text-base'>{type}</h4>
+      <span class='text-gray-600'>{label}</span>
+    </div>
+  </a>
+</article>

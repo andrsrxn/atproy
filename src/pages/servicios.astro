@@ -1,0 +1,63 @@
+---
+import { ImagenObraNegra } from '@/assets/images'
+import ContactWidget from '@/components/ContactWidget.astro'
+import ServiceDetailsCard from '@/components/ServiceDetailsCard.astro'
+import Subtitle from '@/components/Subtitle.astro'
+import Title from '@/components/Title.astro'
+import { services } from '@/config/constants'
+import Layout from '@/layouts/Layout.astro'
+import { replaceParenthesis } from '@/utils/replaceParenthesis'
+import { Fragment } from 'astro/jsx-runtime'
+---
+
+<Layout
+  title='Servicios | ATProy'
+  description='Múltiples soluciones integrales de ingeniería para las necesidades de tu empresa'>
+  <section
+    class='flex py-14 justify-center flex-col gap-10 w-11/12 container max-w-lg lg:max-w-3xl mx-auto xl:max-w-5xl overflow-hidden'>
+    <div
+      class='w-full animate-fade-up animate-duration-500 animate-ease-in-out'>
+      <Title>Diseño, Desarrollo y Mantenimiento</Title>
+      <p
+        class='text-center text-gray-500 mx-auto w-[90%] max-w-[500px] text-pretty lg:text-lg xl:text-2xl xl:max-w-[700px] mt-4'>
+        Descubre <strong class='text-details'>+60</strong> soluciones integrales
+        para apoyarte con nuestra amplia experiencia en distintas ramas de la ingeniería
+      </p>
+      <img
+        class='h-[250px] md:h-[300px] lg:h-[350px] xl:h-[470px] mx-auto w-full object-cover rounded-md shadow-lg mt-6 xl:mt-10 object-bottom'
+        src={ImagenObraNegra.src}
+        alt='Obra en construcción'
+      />
+    </div>
+  </section>
+  <section
+    class='flex pb-16 justify-center flex-col gap-10 w-11/12 container max-w-2xl lg:max-w-6xl mx-auto'>
+    {
+      services.map(service => (
+        <div class='grid gap-2 mt-10' id={service.slug}>
+          <Subtitle
+            class='!text-left !m-0'
+            set:html={replaceParenthesis(
+              service.name,
+              'font-normal text-[0.8em]'
+            )}
+          />
+          <p class='text-gray-600 w-[80%] md:text-lg max-w-[550px] text-pretty xl:text-xl'>
+            {service.description}
+          </p>
+
+          <div class={`grid gap-6 mt-6 md:grid-cols-2 xl:grid-cols-3`}>
+            {service.subservices.map(subservice => (
+              <ServiceDetailsCard
+                {...subservice}
+                keyword={subservice.keyword}
+                class={`${subservice.services.length > 12 ? 'md:col-span-2' : null}`}
+              />
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </section>
+  <ContactWidget />
+</Layout>

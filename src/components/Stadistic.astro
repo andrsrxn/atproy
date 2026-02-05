@@ -1,0 +1,22 @@
+---
+interface Props {
+  quantity: number
+  description: string
+}
+
+const { quantity, description } = Astro.props
+const quantityFormatted = new Intl.NumberFormat(undefined, {
+  maximumSignificantDigits: 6
+}).format(quantity)
+---
+
+<div
+  class='min-w-[50%] min-h-[120px] md:min-h-[180px] rounded-md p-2 text-center shadow-md flex items-center justify-center flex-col bg-white gap-2 xl:gap-4'>
+  <span class='text-3xl font-bold md:text-4xl xl:text-[2.7rem] text-primary'
+    ><b class='text-secondary font-normal'>+</b> {quantityFormatted}
+  </span>
+  <p
+    class='text-sm text-gray-600 font-medium w-[80%] md:text-base text-pretty xl:text-lg'>
+    {description}
+  </p>
+</div>

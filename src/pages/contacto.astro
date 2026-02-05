@@ -1,0 +1,23 @@
+---
+import ContactCard from '@/components/ContactCard.astro'
+import Title from '@/components/Title.astro'
+import { contactLinks } from '@/config/constants'
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout
+  title='Contacto'
+  description='Contrata nuestros servicios o solicita mayor información por nuestros medios de contacto'>
+  <section
+    class='flex-1 py-14 h-auto flex items-center justify-center flex-col animate-fade-up animate-duration-500 animate-ease-in-out'>
+    <Title>Contacto</Title>
+    <p
+      class='text-center text-gray-500 mx-auto w-[90%] max-w-[500px] text-pretty lg:text-lg xl:text-2xl xl:max-w-[750px] mt-4'>
+      Puedes contactarnos de Lunes a Sábado y nos comunicaremos contigo lo más pronto posible para
+      brindarte soluciones
+    </p>
+    <div class='grid gap-4 mt-8 w-11/12 mx-auto max-w-md lg:max-w-5xl lg:grid-cols-3 lg:gap-6'>
+      {contactLinks.map(contact => <ContactCard {...contact} />)}
+    </div>
+  </section>
+</Layout>

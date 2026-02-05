@@ -1,0 +1,96 @@
+---
+import { ArrowDown, ArrowRight, Menu } from 'lucide-astro'
+import { contactLinks, navLinks } from '@/config/constants'
+---
+
+<a
+  href='#contenido-principal'
+  class='w-full bg-gray-800 text-white text-center fixed top-0 left-0 items-center justify-center gap-4 h-8 opacity-0 pointer-events-none flex focus:opacity-100 focus:pointer-events-auto'>
+  Pasar al contenido principal <ArrowDown />
+</a>
+<div
+  class='bg-primary relative z-[100] text-[0.8rem] px-[5%] h-9 text-white overflow-hidden'>
+  <div
+    class='items-center justify-between flex gap-4 h-full max-w-6xl mx-auto overflow-x-auto scrollbar-hidden lg:justify-center lg:gap-10'>
+    {
+      contactLinks.map(({ link, icon: Icon, label }) => (
+        <a href={link} class='flex gap-4 items-center shrink-0'>
+          <Icon class='size-4 hidden md:block' /> {label}
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<header
+  class='bg-white w-full h-[45px] shadow-lg flex items-center justify-center sticky top-0 left-0 z-[100] overflow-x-clip xl:h-[50px]'>
+  <div
+    class='h-full relative w-full lg:flex lg:justify-between lg:w-11/12 lg:mx-auto lg:max-w-6xl'>
+    <div
+      class='h-full relative z-50 flex items-center w-11/12 lg:w-auto lg:m-0 mx-auto container'>
+      <a href='/' class='h-full flex items-center'>
+        <img
+          src='/logotipo-horizontal.svg'
+          alt='ATProy Logotipo'
+          class='h-[70%]'
+          title='Ir al inicio'
+        />
+      </a>
+      <button
+        transition:persist
+        aria-label='Abrir o cerrar menú'
+        title='Menú'
+        class='lg:hidden absolute right-2 cursor-pointer top-[50%] -translate-y-1/2'
+        id='menu-btn'>
+        <Menu class='stroke-secondary' />
+      </button>
+    </div>
+    <nav
+      id='drop-menu'
+      transition:persist
+      class='h-[calc(100dvh-40px)] fixed top-[45px] left-0 w-full bg-white translate-x-[10%] pointer-events-none overflow-hidden ease-in transition-all duration-300 [&.active]:translate-x-0 z-40 opacity-0 [&.active]:ease-out [&.active]:opacity-100 [&.active]:pointer-events-auto lg:relative lg:top-auto lg:transform-none lg:opacity-100 lg:pointer-events-auto lg:h-auto lg:w-auto'>
+      <ul
+        class='flex gap-10 h-full items-center justify-center flex-col overflow-hidden relative lg:flex-row xl:gap-14'>
+        {
+          navLinks.map(({ label, url }) => (
+            <li class='text-lg font-semibold text-primary'>
+              <a
+                href={url}
+                tabindex='-1'
+                class='relative z-10 flex gap-4 items-center lg:text-sm lg:hover:text-secondary xl:text-base'>
+                {label}
+                <ArrowRight class='size-5 stroke-secondary lg:hidden ' />
+              </a>
+            </li>
+          ))
+        }
+        <li aria-hidden='true'>
+          <img
+            src='/isotipo-negativo.svg'
+            alt='Logo alternativo'
+            class='absolute opacity-[0.03] w-full scale-110 left-[50%] -translate-x-[50%] top-[50%] -translate-y-[50%] z-0 pointer-events-none max-w-96 lg:hidden'
+          />
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn')
+  const dropMenu = document.getElementById('drop-menu')
+  const links = dropMenu?.querySelectorAll('a')
+
+  menuBtn?.addEventListener('click', () => {
+    dropMenu?.classList.toggle('active')
+    if (dropMenu?.classList.contains('active')) {
+      links?.forEach(link => link.setAttribute('tabindex', '0'))
+    } else {
+      links?.forEach(link => link.setAttribute('tabindex', '-1'))
+    }
+  })
+
+  links?.forEach(link => {
+    link.addEventListener('click', () => dropMenu?.classList.remove('active'))
+  })
+</script>

@@ -1,0 +1,64 @@
+---
+import FooterImage from '@/assets/images/footer.png'
+import { contactLinks } from '@/config/constants'
+---
+
+<div class='mt-10 grid xl:grid-cols-2 overflow-hidden w-full'>
+  <img src={FooterImage.src} alt='Ilustración de un área de construcción' class='w-full' />
+  <img
+    src={FooterImage.src}
+    loading='lazy'
+    alt='Ilustración de un área de construcción'
+    class='hidden xl:block w-full -scale-x-100'
+  />
+</div>
+<footer class='bg-primary py-10'>
+  <div class='w-11/12 mx-auto container margin grid gap-6 md:grid-cols-2 md:gap-10 xl:grid-cols-3'>
+    <div class='w-[150px] md:col-span-2 xl:col-span-1 xl:w-[180px]'>
+      <img src='/logotipo-horizontal-positivo.svg' alt='Logotipo alternativo' />
+    </div>
+
+    <div class='flex flex-col gap-4'>
+      <h3 class='text-white font-semibold text-lg'>Legal</h3>
+      <ul class='flex flex-col gap-4 text-sm'>
+        <li>
+          <a class='lg:hover:text-gray-300 text-gray-400' href='/legal/terminos-y-condiciones'
+            >Términos y condiciones</a
+          >
+        </li>
+        <li>
+          <a class='lg:hover:text-gray-300 text-gray-400' href='/legal/politica-de-privacidad'
+            >Política de privacidad</a
+          >
+        </li>
+        <li>
+          <a class='lg:hover:text-gray-300 text-gray-400' href='/legal/politica-de-cookies'
+            >Política de cookies</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class='flex flex-col gap-4'>
+      <h3 class='text-white font-semibold text-lg'>Contacto</h3>
+
+      <ul class='flex flex-col gap-4 text-sm'>
+        {
+          contactLinks.map(({ link, label }) => (
+            <li>
+              <a
+                href={link}
+                class='flex gap-4 items-center shrink-0 lg:hover:text-gray-300 text-gray-400'>
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+  <div class='w-11/12 mx-auto container mt-10 border-t border-t-white/15'>
+    <p class='text-gray-400 pt-8 text-sm md:text-center'>
+      Todos los Derechos Reservados. &copy; 2026 Grupo ATProy
+    </p>
+  </div>
+</footer>

@@ -1,0 +1,21 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "url": "https://grupoatproy.com",
+  "name": "Grupo ATProy",
+  "alternateName": "ATProy",
+  "image": "https://grupoatproy.com/banner.jpg",
+  "logo": "https://grupoatproy.com/isotipo.svg",
+  "description": "ATProy es una empresa de ingeniería especializada en el sector eléctrico, civil y de telecomunicaciones, incluyendo diseño, desarrollo, construcción y mantenimiento para Centroamérica.",
+  "email": "info@grupoatproy.com",
+  "telephone": "+502-5306-7848",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "9ª. Avenida Fuentes de Minerva II",
+    "addressLocality": "Guatemala",
+    "addressCountry": "GT",
+    "addressRegion": "Mixco",
+    "postalCode": "01057"
+  },
+  "foundingDate": "2004-07-01"
+}

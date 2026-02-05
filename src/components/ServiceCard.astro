@@ -1,0 +1,47 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import { ArrowRight } from 'lucide-astro'
+
+interface Props extends HTMLAttributes<'article'> {
+  imageUrl: string
+  serviceName: string
+
+  slug: string
+}
+
+const {
+  imageUrl,
+  serviceName,
+
+  slug,
+  class: classes,
+  ...props
+} = Astro.props
+---
+
+<article
+  class={`service-card rounded-md relative group overflow-hidden ${classes}`}
+  {...props}>
+  <a href={`/servicios/#${slug}`}>
+    <img
+      loading='lazy'
+      decoding='async'
+      src={imageUrl}
+      alt={`Representación del servicio de ${serviceName}`}
+      class='w-full h-[250px] md:h-[350px] xl:h-[400px] rounded-md object-cover lg:group-hover:scale-105 transition-transform duration-500 ease-out'
+    />
+    <div
+      class='flex justify-between items-end gap-2 absolute inset-0 w-full h-full p-4 from-gray-800 via-gray-800/40 to-transparent bg-gradient-to-t rounded-md md:p-6 xl:p-8'>
+      <div class='flex flex-col gap-2 text-white'>
+        <h3
+          class='min-h-8 text-[1.4rem] md:text-[1.8rem] xl:text-[2rem] md:font-bold md:min-h-10 xl:min-h-12 font-semibold leading-tight'>
+          {serviceName}
+        </h3>
+      </div>
+      <span
+        class='text-secondary size-10 xl:size-14 shrink-0 flex items-center justify-center rounded-full bg-secondary-light/20 group-hover:bg-secondary-light/35 transition-all duration-300'>
+        <ArrowRight class='size-5 xl:size-7' />
+      </span>
+    </div>
+  </a>
+</article>

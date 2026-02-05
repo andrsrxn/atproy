@@ -1,0 +1,277 @@
+---
+import Fondo from '@/assets/resources/fondo.svg'
+import Button from '@/components/Button.astro'
+import Title from '@/components/Title.astro'
+import Layout from '@/layouts/Layout.astro'
+
+import { ImagenCasco, ImagenEquipo, ImagenObraNegra2, ImagenPaneles } from '@/assets/images'
+import ContactWidget from '@/components/ContactWidget.astro'
+import Subtitle from '@/components/Subtitle.astro'
+import {
+  BrainCircuit,
+  Check,
+  Flag,
+  Flower,
+  LineChart,
+  Lock,
+  Shield,
+  Stars,
+  ThumbsUp,
+  Users
+} from 'lucide-astro'
+---
+
+<Layout
+  title='Acerca de | ATProy'
+  description='Descubre todo acerca de nuestra empresa y trayectoria por más de una década!'>
+  <section class='h-auto flex justify-center relative'>
+    <img src={Fondo.src} class='h-[550px] w-full object-cover' alt='Fondo patrón' />
+    <div class='absolute w-full z-50 bg-gradient-to-b from-black/60 to-transparent h-full inset-0'>
+    </div>
+    <div
+      class='absolute left-0 w-full z-20 bg-gradient-to-t from-gray-100 to-transparent h-[500px] bottom-0'>
+    </div>
+    <div class='absolute inset-0 z-50 flex items-center justify-center flex-col gap-4'>
+      <Title class='text-white animate-fade-up animate-fill-forwards animate-duration-500'>
+        Grupo ATProy
+      </Title>
+      <p
+        class='text-center text-gray-100 w-[90%] max-w-[500px] text-pretty lg:text-lg xl:text-2xl xl:max-w-[650px] animate-fade-up animate-fill-forwards animate-duration-500'>
+        Somos una empresa de ingeniería especializada en el sector eléctrico, civil y de
+        telecomunicaciones, incluyendo diseño, desarrollo, construcción y mantenimiento.
+      </p>
+      <div
+        class='flex justify-center gap-2 w-[90%] mx-auto text-sm mt-4 max-w-sm xl:gap-4 animate-fade-up animate-fill-forwards animate-duration-500'>
+        <Button buttonType='link' href='/servicios' full variant='secondary'>
+          Ver servicios
+        </Button>
+        <Button buttonType='link' href='/proyectos' full variant='default'> Ver Proyectos </Button>
+      </div>
+    </div>
+    <div
+      class='absolute w-full h-[420px] bg-gradient-to-t from-gray-200 via-gray-200/40 to-transparent bottom-0 z-0'>
+    </div>
+  </section>
+
+  <section class='w-11/12 mx-auto max-w-md py-14 grid gap-20 lg:gap-36 lg:max-w-5xl relative'>
+    <article class='lg:flex lg:justify-between lg:gap-10 relative lg:items-start'>
+      <div class='block lg:sticky lg:top-[80px] min-w-[50%]'>
+        <Subtitle class='!text-left !m-0 xl:!text-[2.5rem]'> Nuestra Historia </Subtitle>
+        <img
+          loading='lazy'
+          decoding='async'
+          class='rounded-md mt-6 aspect-video object-cover shadow-lg'
+          src={ImagenEquipo.src}
+          alt='Equipo planificando el proyecto'
+        />
+      </div>
+      <div class='mt-6'>
+        <ul class='grid gap-6 pl-6'>
+          <li class='list-item list-disc marker:text-details marker:text-2xl'>
+            <span class='font-bold text-3xl'>2004</span>
+            <p class='mt-3 md:text-lg'>
+              Nace como iniciativa de profesionales con formación científico tecnológica cuyo sueño
+              era aplicar dos palabras a su quehacer profesional: ingeniería y desarollo.
+            </p>
+          </li>
+          <li class='list-item list-disc marker:text-details marker:text-2xl'>
+            <span class='font-bold text-3xl'>2008</span>
+            <p class='mt-3 md:text-lg'>
+              Se constituyo como empresa mercantil con el objetivo del diseño, supervisión y
+              ejecución de obras civiles y edificaciones en general, instalaciones comerciales e
+              industriales eléctricas y telefónicas.
+            </p>
+          </li>
+
+          <li class='list-item list-disc marker:text-details marker:text-2xl'>
+            <span class='font-bold text-3xl'>Actualidad</span>
+            <p class='mt-3 md:text-lg'>
+              Actualmente Atproy está a la vanguardia en cuanto a la mejora de los sistemas
+              eléctricos de distribución en los voltajes de 13.8 kV, 34.5 kV y 69 kV. Así como en lo
+              relativo a construcciones civiles, estudios de eficiencia energética y
+              telecomunicaciones.
+            </p>
+            <p class='mt-3 md:text-lg'>
+              A lo largo del tiempo, los trabajos realizados le permiten a nuestra empresa aportar
+              experiencia de más de 9 años en el sector eléctrico.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </article>
+    <article class='lg:flex lg:justify-between lg:gap-10 relative lg:items-start'>
+      <div class='block lg:sticky lg:top-[80px] min-w-[50%]'>
+        <Subtitle class='!text-left !m-0 xl:!text-[2.5rem]'>Misión</Subtitle>
+
+        <img
+          loading='lazy'
+          decoding='async'
+          class='rounded-md mt-6 aspect-video object-cover shadow-lg'
+          src={ImagenPaneles.src}
+          alt='Representación de energía renovable con paneles solares'
+        />
+      </div>
+      <div class='mt-6 lg:mt-16'>
+        <p class='md:text-lg lg:text-2xl'>
+          "Formular, planificar, diseñar y supervisar proyectos eléctricos, civiles y de
+          telecomunicaciones, respetando los márgenes de calidad internacional, amigables con el
+          ambiente proporcionando seguridad y bienestar"
+        </p>
+      </div>
+    </article>
+    <article class='lg:flex lg:justify-between lg:gap-10 relative lg:items-start'>
+      <div class='block lg:sticky lg:top-[80px] min-w-[50%]'>
+        <Subtitle class='!text-left !m-0 xl:!text-[2.5rem]'>Visión</Subtitle>
+
+        <img
+          loading='lazy'
+          decoding='async'
+          class='rounded-md aspect-video object-cover shadow-lg mt-6'
+          src={ImagenObraNegra2.src}
+          alt='Obra en construcción'
+        />
+      </div>
+      <div class='mt-6 lg:mt-16'>
+        <p class='md:text-lg lg:text-2xl'>
+          "Ser la empresa de proyectos eléctricos, civiles y de telecomunicaciones líder a nivel
+          nacional, acorde a la vanguardia de tecnología y normas vigentes de seguridad y ambiente"
+        </p>
+      </div>
+    </article>
+    <article class='lg:flex lg:justify-between lg:gap-10 relative lg:items-start'>
+      <div class='block lg:sticky lg:top-[80px] min-w-[50%]'>
+        <Subtitle class='!text-left !m-0 xl:!text-[2.5rem]'>Valores</Subtitle>
+        <img
+          loading='lazy'
+          decoding='async'
+          class='rounded-md aspect-video object-cover shadow-lg mt-6'
+          src={ImagenCasco.src}
+          alt='Ingeniero observando una construcción'
+        />
+      </div>
+      <div class='grid gap-x-6 gap-y-10 mt-8 grid-cols-2 lg:mt-16'>
+        <div class='value-card flex flex-col gap-4'>
+          <div
+            class='size-12 bg-secondary/15 text-secondary flex items-center justify-center rounded-md'>
+            <Shield class='size-7' />
+          </div>
+          <div class='flex flex-col gap-2'>
+            <h3 class='text-lg font-bold md:text-2xl'>Respeto</h3>
+            <p class='text-pretty text-sm md:text-base lg:text-lg'>
+              Actuamos según convicciones y derechos propios sin dañar a los demás.
+            </p>
+          </div>
+        </div>
+        <div class='value-card flex flex-col gap-4'>
+          <div
+            class='size-12 bg-secondary/15 text-secondary flex items-center justify-center rounded-md'>
+            <Check class='size-7' />
+          </div>
+          <div class='flex flex-col gap-2'>
+            <h3 class='text-lg font-bold md:text-2xl'>Responsabilidad</h3>
+            <p class='text-pretty text-sm md:text-base lg:text-lg'>
+              Obligación para con noso tros mismos como para los clientes.
+            </p>
+          </div>
+        </div>
+        <div class='value-card flex flex-col gap-4'>
+          <div
+            class='size-12 bg-secondary/15 text-secondary flex items-center justify-center rounded-md'>
+            <BrainCircuit class='size-7' />
+          </div>
+          <div class='flex flex-col gap-2'>
+            <h3 class='text-lg font-bold md:text-2xl'>Disciplina</h3>
+            <p class='text-pretty text-sm md:text-base lg:text-lg'>
+              Organización metódica de las tareas y cumplimiento exacto de los deberes.
+            </p>
+          </div>
+        </div>
+        <div class='value-card flex flex-col gap-4'>
+          <div
+            class='size-12 bg-secondary/15 text-secondary flex items-center justify-center rounded-md'>
+            <ThumbsUp class='size-7' />
+          </div>
+          <div class='flex flex-col gap-2'>
+            <h3 class='text-lg font-bold md:text-2xl'>Solidaridad</h3>
+            <p class='text-pretty text-sm md:text-base lg:text-lg'>
+              Colaboración entre individuos para la búsqueda de resultados.
+            </p>
+          </div>
+        </div>
+        <div class='value-card flex flex-col gap-4'>
+          <div
+            class='size-12 bg-secondary/15 text-secondary flex items-center justify-center rounded-md'>
+            <LineChart class='size-7' />
+          </div>
+          <div class='flex flex-col gap-2'>
+            <h3 class='text-lg font-bold md:text-2xl'>Tenacidad</h3>
+            <p class='text-pretty text-sm md:text-base lg:text-lg'>
+              Constancia para alcanzar el logro de cada objetivo.
+            </p>
+          </div>
+        </div>
+        <div class='value-card flex flex-col gap-4'>
+          <div
+            class='size-12 bg-secondary/15 text-secondary flex items-center justify-center rounded-md'>
+            <Users class='size-7' />
+          </div>
+          <div class='flex flex-col gap-2'>
+            <h3 class='text-lg font-bold md:text-2xl'>Competitividad</h3>
+            <p class='text-pretty text-sm md:text-base lg:text-lg'>
+              Capacidad de mejorar nuestros procesos con eficiencia y calidad comprobable.
+            </p>
+          </div>
+        </div>
+        <div class='value-card flex flex-col gap-4'>
+          <div
+            class='size-12 bg-secondary/15 text-secondary flex items-center justify-center rounded-md'>
+            <Flag class='size-7' />
+          </div>
+          <div class='flex flex-col gap-2'>
+            <h3 class='text-lg font-bold md:text-2xl'>Honestidad</h3>
+            <p class='text-pretty text-sm md:text-base lg:text-lg'>
+              Rectitud en el pensar, sentir y proceder.
+            </p>
+          </div>
+        </div>
+        <div class='value-card flex flex-col gap-4'>
+          <div
+            class='size-12 bg-secondary/15 text-secondary flex items-center justify-center rounded-md'>
+            <Lock class='size-7' />
+          </div>
+          <div class='flex flex-col gap-2'>
+            <h3 class='text-lg font-bold md:text-2xl'>Lealtad</h3>
+            <p class='text-pretty text-sm md:text-base lg:text-lg'>
+              Fidelidad y compromiso de adhesión con la institución.
+            </p>
+          </div>
+        </div>
+        <div class='value-card flex flex-col gap-4'>
+          <div
+            class='size-12 bg-secondary/15 text-secondary flex items-center justify-center rounded-md'>
+            <Stars class='size-7' />
+          </div>
+          <div class='flex flex-col gap-2'>
+            <h3 class='text-lg font-bold md:text-2xl'>Autenticidad</h3>
+            <p class='text-pretty text-sm md:text-base lg:text-lg'>
+              Expresión única del pensamiento y sentimiento.
+            </p>
+          </div>
+        </div>
+        <div class='value-card flex flex-col gap-4'>
+          <div
+            class='size-12 bg-secondary/15 text-secondary flex items-center justify-center rounded-md'>
+            <Flower class='size-7' />
+          </div>
+          <div class='flex flex-col gap-2'>
+            <h3 class='text-lg font-bold md:text-2xl'>Ecofilia</h3>
+            <p class='text-pretty text-sm md:text-base lg:text-lg'>
+              Uso responsable y conservación del medio ambiente.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+  <ContactWidget />
+</Layout>

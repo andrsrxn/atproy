@@ -1,0 +1,6 @@
+export { default as LogoFMLogistics } from './FM_LOGISTIC.webp'
+export { default as LogoArteInmobilario } from './arte-inmobiliario.webp'
+export { default as LogoCondado } from './condado-naranjo.webp'
+export { default as LogoGrupoMacro } from './grupo-macro.webp'
+export { default as LogoMaya } from './grupo-maya.webp'
+export { default as LogoSpectrum } from './spectrum.webp'

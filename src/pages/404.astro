@@ -1,0 +1,30 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { ArrowRight } from 'lucide-astro'
+---
+
+<Layout title='Página no encontrada' description='No se pudo encontrar la página solicitada'>
+  <section class='flex-1 flex items-center juzstify-center'>
+    <div
+      class='py-8 px-4 h-full mx-auto max-w-screen-xl lg:py-16 lg:px-6 animate-fade-up animate-duration-500 animate-ease-in-out'>
+      <div
+        class='mx-auto h-full flex items-center justify-center flex-col max-w-screen-sm text-center'>
+        <h1
+          class='mb-4 text-7xl tracking-tight font-extrabold animate-fade-up animate-duration-500 lg:text-9xl text-primary'>
+          404
+        </h1>
+        <p class='mb-4 text-2xl tracking-tight font-bold text-gray-900 md:text-4xl lg:text-5xl'>
+          Página no encontrada
+        </p>
+        <p class='mb-4 text-base font-light text-gray-500 lg:text-xl md:font-medium'>
+          El recurso que solicitaste no está disponible.
+        </p>
+        <a
+          href='/'
+          class='inline-flex text-primary text-xl underline font-medium rounded-lg px-5 py-2.5 text-center my-4 gap-2 items-center'>
+          Volver al inicio <ArrowRight class='text-secondary size-5' />
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,149 @@
+---
+import ServiceCard from '@/components/ServiceCard.astro'
+import Stadistic from '@/components/Stadistic.astro'
+import Subtitle from '@/components/Subtitle.astro'
+import Title from '@/components/Title.astro'
+
+import Button from '@/components/Button.astro'
+import Layout from '@/layouts/Layout.astro'
+import { ArrowRight } from 'lucide-astro'
+
+import { ImagenPlanos, ImagenTierra } from '@/assets/images'
+import { featuredServices } from '@/config/constants'
+
+import Schema from '@/schemas/index.json'
+---
+
+<Layout
+  title='ATProy | Proyectos del futuro'
+  schema={Schema}
+  description='Con más de una década de experiencia, creamos proyectos sostenibles, modernos y escalables'>
+  <section
+    class='grid gap-3 w-11/12 container mx-auto py-8 max-w-5xl md:py-10 xl:pt-16 animate-fade-up animate-fill-forwards animate-duration-500'>
+    <div class='flex gap-3 mt-2 items-center justify-center xl:gap-4'>
+      <img
+        class='w-7 h-5 object-cover rounded-[4px] md:w-9 md:h-6'
+        alt='Bandera de Guatemala'
+        title='Guatemala'
+        src='https://flagsapi.com/GT/flat/48.png'
+      />
+      <img
+        class='w-7 h-5 object-cover rounded-[4px] md:w-9 md:h-6'
+        alt='Bandera de Honduras'
+        title='Honduras'
+        src='https://flagsapi.com/HN/flat/48.png'
+      />
+      <img
+        class='w-7 h-5 object-cover rounded-[4px] md:w-9 md:h-6'
+        alt='Bandera de Panamá'
+        title='Panamá'
+        src='https://flagsapi.com/PA/flat/48.png'
+      />
+    </div>
+    <Title class='text-center xl:text-[5rem]'>
+      Creando Proyectos del Futuro <span
+        class='text-lg mt-2 block font-normal text-gray-500 md:text-xl xl:text-xl xl:mt-4 xl:font-medium text-pretty max-w-[550px] mx-auto'
+        >Con más de una década de experiencia en ingeniería a lo largo de Centroamérica</span
+      >
+    </Title>
+
+    <div class='flex justify-center gap-2 w-[90%] mx-auto text-sm mt-4 max-w-sm xl:gap-4'>
+      <Button buttonType='link' href='/contacto' full variant='default'> Contratar </Button>
+      <Button buttonType='link' href='/proyectos' full variant='secondary'> Ver Proyectos </Button>
+    </div>
+  </section>
+
+  <!-- <section class='overflow-hidden py-8 md:max-w-2xl md:mx-auto xl:max-w-5xl'>
+    <Carrousel images={clients} />
+  </section> -->
+
+  <section class='grid gap-6 py-10 md:gap-8 lg:pt-0'>
+    <div
+      class='grid gap-6 w-11/12 container mx-auto max-w-lg lg:grid-cols-2 lg:max-w-3xl lg:gap-y-0 lg:pb-44 xl:pb-48 xl:max-w-6xl xl:-mt-8'>
+      {
+        featuredServices.map((service, i) => (
+          <ServiceCard
+            slug={service.slug}
+            serviceName={service.name}
+            imageUrl={service.image.src}
+            style={{
+              '--service-scale': (((i + 1) / featuredServices.length) * (1 - 0.7) + 0.7).toFixed(2),
+              top: ((i + 1) / featuredServices.length) * (150 - 50) + 50 + 'px'
+            }}
+            class='sticky lg:relative'
+          />
+        ))
+      }
+    </div>
+    <a
+      href='/servicios'
+      class='w-11/12 container mx-auto flex gap-2 items-center max-w-5xl text-center font-medium text-lg mt-4 lg:mt-0 underline justify-center md:text-base xl:text-2xl group'>
+      Y muchos más servicios <ArrowRight
+        class='size-5 text-secondary lg:group-hover:translate-x-2 transition-transform duration-300'
+      />
+    </a>
+  </section>
+
+  <!-- <Divider /> -->
+
+  <section class='py-20 min-h-[60vh] flex items-center justify-center flex-col xl:py-24'>
+    <div class='grid gap-6 w-11/12 container mx-auto max-w-lg xl:max-w-5xl'>
+      <p
+        class='text-center text-2xl font-semibold md:text-3xl md:leading-snug text-balance xl:text-5xl xl:w-[80%] xl:mx-auto xl:leading-[1.4]'>
+        Nos destacamos en <mark class='bg-details/15'>
+          proyectos civiles, eléctricos y de telecomunicaciones</mark
+        >
+        enfocados en la <u class='decoration-details-light leading-5'>
+          calidad, innovación y sostenibilidad ambiental.
+        </u>
+      </p>
+      <div class='grid grid-cols-2 gap-3 mt-4 xl:grid-cols-4'>
+        <Stadistic quantity={200} description='Páneles solares instalados' />
+        <Stadistic quantity={50} description='Kilómetros de asfalto en carretera' />
+        <Stadistic quantity={1500} description='Postes colocados y mantenidos' />
+        <Stadistic quantity={300} description='Planes de construcción' />
+      </div>
+    </div>
+  </section>
+
+  <section class='pt-10 pb-20 flex items-center justify-center flex-col xl:pb-24'>
+    <div class='grid gap-6 w-11/12 container mx-auto max-w-lg xl:max-w-5xl'>
+      <Subtitle>Resultados a la medida</Subtitle>
+      <p
+        class='text-center font-normal text-gray-500 max-w-[500px] text-pretty text-lg mx-auto lg:text-xl xl:text-2xl xl:max-w-[650px]'>
+        Miles de personas beneficiadas gracias a nuestros resultados escalables y duraderos
+      </p>
+    </div>
+    <div
+      class='flex gap-4 justify-center items-center mt-8 text-lg font-medium lg:text-2xl lg:font-semibold'>
+      <span>Convierte tu idea</span>
+      <ArrowRight class='text-secondary' />
+      <span>En una realidad</span>
+    </div>
+    <div class='flex gap-4 mt-10 overflow-hidden justify-center'>
+      <img
+        loading='lazy'
+        decoding='async'
+        class='rounded-md shadow-lg max-h-[400px] object-cover lg:max-h-[550px] w-full'
+        src={ImagenPlanos.src}
+        alt='Planificación'
+      />
+      <img
+        loading='lazy'
+        decoding='async'
+        class='rounded-md shadow-lg max-h-[400px] object-cover lg:max-h-[550px] w-full'
+        src={ImagenTierra.src}
+        alt='Puesta en marcha'
+      />
+    </div>
+    <Button
+      class='max-w-[90%] mx-auto md:max-w-[450px] mt-10'
+      buttonType='link'
+      full
+      href='/contacto'
+      variant='default'>
+      Solicitar Servicios
+    </Button>
+    <!-- {featuredSpecifications.map(spec => <FeatureCard {...spec} />)} -->
+  </section>
+</Layout>

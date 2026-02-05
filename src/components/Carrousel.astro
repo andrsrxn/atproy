@@ -1,0 +1,43 @@
+---
+interface Props {
+  images: {
+    image: ImageMetadata
+    name: string
+  }[]
+}
+const { images } = Astro.props
+---
+
+<div
+  class='w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_100px,_black_calc(100%-100px),transparent_100%)] opacity-85'>
+  <ul
+    class='flex items-center justify-center md:justify-start [&_li]:mx-4 lg:[&_li]:mx-9 [&_img]:max-w-none animate-infinite-scroll'>
+    {
+      images.map(client => (
+        <li>
+          <img
+            class='object-contain w-[70px] xl:w-[100px] max-h-14 xl:max-h-20  saturate-0'
+            src={client.image.src}
+            alt={client.name}
+            title={client.name}
+          />
+        </li>
+      ))
+    }
+  </ul>
+  <ul
+    class='flex items-center justify-center md:justify-start [&_li]:mx-4 lg:[&_li]:mx-9 [&_img]:max-w-none animate-infinite-scroll'>
+    {
+      images.map(client => (
+        <li>
+          <img
+            class='object-contain w-[70px] xl:w-[100px] max-h-14 xl:max-h-20  saturate-0'
+            src={client.image.src}
+            alt={client.name}
+            title={client.name}
+          />
+        </li>
+      ))
+    }
+  </ul>
+</div>

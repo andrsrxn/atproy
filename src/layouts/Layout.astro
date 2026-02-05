@@ -1,0 +1,175 @@
+---
+import CookieBanner from '@/components/CookieBanner.astro'
+import Footer from '@/components/globals/Footer.astro'
+import Header from '@/components/globals/Header.astro'
+import { ViewTransitions } from 'astro:transitions'
+interface Props {
+  title: string
+  description: string
+  schema?: {}
+  cookies?: boolean
+}
+
+const { title, description, schema: PageSchema, cookies = true } = Astro.props
+---
+
+<!doctype html>
+<html lang='es'>
+  <head>
+    <!-- Google Tag Manager -->
+    <script is:inline>
+      ;(function (w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : ''
+        j.async = true
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, 'script', 'dataLayer', 'GTM-WPCLCW9V')
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset='UTF-8' />
+    <meta name='theme-color' content='#002f6d' />
+    <meta name='viewport' content='width=device-width' />
+
+    <meta name='apple-mobile-web-app-title' content='ATProy' />
+    <meta name='application-name' content='ATProy' />
+    <meta name='msapplication-TileColor' content='#ffffff' />
+    <meta name='theme-color' content='#ffffff' />
+
+    <meta
+      name='keywords'
+      content='Empresa de proyectos Guatemala, pavimentacion y carreteras, paneles solares, multiservicios guatemala, diseño y construcción, mega proyectos'
+    />
+    <meta
+      http-equiv='Content-Security-Policy'
+      content="script-src 'self' https://flagsapi.com 'unsafe-inline' https://www.googletagmanager.com 'unsafe-inline'"
+    />
+
+    <title>{title}</title>
+    <meta name='description' content={description} />
+
+    <style is:global>
+      @font-face {
+        font-family: InterVariable;
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url('../assets/fonts/InterVariable.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-family: InterVariable;
+        font-style: italic;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url('../assets/fonts/InterVariable-Italic.woff2') format('woff2');
+      }
+
+      :root {
+        --green-light: #7be590;
+        --green-default: #00943c;
+        --green-dark: #005e19;
+
+        --blue-light: #b8d9eb;
+        --blue-default: #002f6d;
+        --blue-dark: #001129;
+
+        --gray-light: #c9ebda;
+        --gray-default: #aac8b9;
+        --gray-dark: #99b1a5;
+
+        --lightblue-light: #6bd3f2;
+        --lightblue-default: #00a6e2;
+        --lightblue-dark: #0076a2;
+      }
+
+      html {
+        font-family: 'Inter', sans-serif;
+        scroll-padding-top: 70px;
+        scroll-behavior: smooth;
+      }
+
+      .scrollbar-hidden::-webkit-scrollbar {
+        display: none;
+      }
+
+      @media (width <= 1000px) {
+        @supports (animation-timeline: scroll()) {
+          .service-card {
+            transition: transform;
+            animation: services linear both;
+            animation-timeline: view();
+
+            animation-range: entry 90% exit 90%;
+            /* animation-duration: 1ms; */
+          }
+        }
+        @keyframes services {
+          from {
+            transform: scale(1);
+          }
+          to {
+            transform: scale(var(--service-scale));
+          }
+        }
+      }
+    </style>
+
+    <meta property='og:type' content='website' />
+    <meta property='og:title' content='Grupo ATProy' />
+    <meta
+      property='og:description'
+      content='Empresa de ingeniería especializada en el sector eléctrico, civil y de telecomunicaciones, incluyendo diseño, desarrollo, construcción y mantenimiento'
+    />
+    <meta property='og:url' content='https://grupoatproy.com/' />
+    <meta property='og:image' content='/banner.jpg' />
+
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:title' content='Grupo ATProy' />
+    <meta
+      name='twitter:description'
+      content='Empresa de ingeniería especializada en el sector eléctrico, civil y de telecomunicaciones, incluyendo diseño, desarrollo, construcción y mantenimiento'
+    />
+    <meta name='twitter:image' content='/banner.jpg' />
+    <meta property='twitter:domain' content='grupoatproy.com' />
+    <meta property='twitter:url' content='https://grupoatproy.com/' />
+
+    <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
+    <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
+    <link rel='manifest' href='/site.webmanifest' />
+    <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#002f6d' />
+
+    {
+      PageSchema && (
+        <script type='application/ld+json' set:html={JSON.stringify(PageSchema, null, 2)} />
+      )
+    }
+    <ViewTransitions />
+  </head>
+  <body class='bg-gray-100 flex flex-col min-h-dvh overflow-x-clip relative'>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src='https://www.googletagmanager.com/ns.html?id=GTM-WPCLCW9V'
+        height='0'
+        width='0'
+        style='display:none;visibility:hidden'></iframe></noscript
+    >
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div
+      class='absolute inset-0 -z-10 h-full w-full bg-gray-100 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:6rem_4rem]'>
+    </div>
+    <Header />
+    <main id='contenido-principal' class='flex-1 min-h-[85dvh] flex flex-col'>
+      <slot />
+    </main>
+    <Footer />
+
+    {cookies && <CookieBanner />}
+  </body>
+</html>

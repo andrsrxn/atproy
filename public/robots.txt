@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /cgi-bin/
+Disallow: /scripts/
+Disallow: /tmp/
+Disallow: /uploads/
+
+Sitemap: https://grupoatproy.com/sitemap.xml
+
+# Bloquear acceso a ciertas extensiones de archivo
+Disallow: /*.pdf$
+Disallow: /*.doc$
+Disallow: /*.xls$

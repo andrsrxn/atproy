@@ -1,0 +1,22 @@
+---
+import Button from '@/components/Button.astro'
+import Subtitle from '@/components/Subtitle.astro'
+---
+
+<section class='w-11/12 mx-auto pt-16 pb-5'>
+  <div class='flex flex-col gap-2 items-center justify-center'>
+    <Subtitle>Comienza tu proyecto</Subtitle>
+    <p
+      class='text-center text-gray-600 text-pretty md:text-lg max-w-[400px] xl:text-2xl xl:max-w-[500px]'>
+      Comunícate con nosotros y te brindaremos una solución especializada
+    </p>
+    <Button
+      buttonType='link'
+      href='/contacto'
+      full
+      class='max-w-[350px] mt-4'
+      variant='default'>
+      Contactar
+    </Button>
+  </div>
+</section>

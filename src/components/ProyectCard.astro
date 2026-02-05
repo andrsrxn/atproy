@@ -1,0 +1,36 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'article'> {
+  imageUrl: ImageMetadata
+  type: string
+  activities: string[]
+}
+
+const { imageUrl, type, activities, class: classes, ...props } = Astro.props
+---
+
+<article
+  class={`service-card rounded-md relative group overflow-hidden ${classes}`}
+  {...props}>
+  <img
+    loading='lazy'
+    decoding='async'
+    src={imageUrl.src}
+    alt={`Representación del proyect de ${type}`}
+    class='w-full h-[450px] rounded-md object-cover lg:group-hover:scale-105 transition-transform duration-500 ease-out'
+  />
+  <div
+    class='flex justify-between items-end gap-2 absolute inset-0 w-full h-full p-5 from-gray-900 to-gray-900/15 bg-gradient-to-r rounded-md md:p-6 xl:p-8'>
+    <div class='flex flex-col gap-2 h-full text-white'>
+      <h3
+        class='min-h-8 text-[1.4rem] md:text-[1.8rem] xl:text-[2rem] md:font-bold md:min-h-10 xl:min-h-12 font-semibold leading-tight'>
+        {type}
+      </h3>
+      <ul
+        class='*:text-gray-300 *:list-disc *:marker:text-details *:marker:text-lg pl-5 xl:max-w-[500px] xl:w-[90%] grid gap-1 text-pretty'>
+        {activities.map(act => <li>{act}</li>)}
+      </ul>
+    </div>
+  </div>
+</article>

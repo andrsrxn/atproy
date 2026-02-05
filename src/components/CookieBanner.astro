@@ -1,0 +1,55 @@
+---
+import Button from '@/components/Button.astro'
+import { Cookie } from 'lucide-astro'
+---
+
+<div
+  class='hidden [&.active]:block fixed bottom-0 right-0 mb-4 mr-4 w-11/12 max-w-[500px]'
+  id='ck-banner'>
+  <div class='bg-white rounded-lg shadow-lg p-4 flex flex-col'>
+    <div class='flex justify-between gap-4 items-center'>
+      <div class='flex items-start gap-2 flex-col mb-2'>
+        <div class='flex items-center gap-2'>
+          <Cookie class='text-orange-800 size-5' />
+          <span class='text-gray-700 font-bold'>Cookies</span>
+        </div>
+        <p class='text-gray-600 text-sm text-pretty'>
+          Utilizamos cookies para mejorar tu experiencia de usuario y nuestro
+          sitio web constantemente.
+        </p>
+      </div>
+      <div>
+        <Button
+          id='accept-cookies'
+          buttonType='button'
+          full={false}
+          variant='default'
+          class='text-sm mt-3 self-end xl:text-sm'>
+          Aceptar
+        </Button>
+        <a
+          href='/legal/politica-de-cookies'
+          class='text-secondary underline text-center w-full block mt-3'
+          >Ver política</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  const banner = document.getElementById('ck-banner')
+  const btn = document.getElementById('accept-cookies')
+  dataLayer = []
+
+  if (localStorage.getItem('cookies-accepted') === null) {
+    //add layer
+    banner.classList.add('active')
+  }
+
+  btn?.addEventListener('click', () => {
+    localStorage.setItem('cookies-accepted', true)
+    dataLayer.push({ event: 'cookies-accepted' })
+    banner.classList.remove('active')
+  })
+</script>

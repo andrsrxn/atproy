@@ -1,0 +1,43 @@
+---
+import BenefitCard from '@/components/BenefitCard.astro'
+import ContactWidget from '@/components/ContactWidget.astro'
+import ProyectCard from '@/components/ProyectCard.astro'
+import Title from '@/components/Title.astro'
+import { projects, projectsBenefits } from '@/config/constants'
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout
+  title='Proyectos | ATProy'
+  description='Nuestros proyectos más importantes realizados a las mayores empresas del sector'>
+  <section
+    class='flex py-14 justify-center flex-col gap-10 w-11/12 container max-w-md lg:max-w-6xl mx-auto animate-fade-up animate-duration-500 animate-ease-in-out'>
+    <div class='w-full'>
+      <Title>De Principio a Fin</Title>
+      <p
+        class='text-center text-gray-500 mx-auto w-[90%] max-w-[500px] text-pretty lg:text-lg xl:text-2xl xl:max-w-[600px] mt-4'>
+        Comprometidos con brindar la mejor experiencia y resultados en cada
+        detalle
+      </p>
+    </div>
+    <div class='grid w-[90%] gap-6 grid-cols-2 lg:grid-cols-4 mx-auto xl:gap-8'>
+      {projectsBenefits.map(project => <BenefitCard {...project} />)}
+    </div>
+  </section>
+  <section
+    class='grid pt-5 pb-10 gap-10 w-11/12 container md:gap-7 lg:max-w-7xl mx-auto lg:gap-5 md:grid-cols-2 xl:grid-cols-3'>
+    {
+      (
+        <>
+          <ProyectCard class='xl:col-span-2' {...projects[0]} />
+          <ProyectCard class='xl:col-span-1' {...projects[1]} />
+          <ProyectCard class='xl:col-span-1' {...projects[2]} />
+          <ProyectCard class='xl:col-span-2' {...projects[3]} />
+          <ProyectCard class='xl:col-span-3' {...projects[4]} />
+        </>
+      )
+    }
+    <!-- {projects.map(project => <ProyectCard {...project} />)} -->
+  </section>
+  <ContactWidget />
+</Layout>
