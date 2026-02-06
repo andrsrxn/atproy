@@ -14,12 +14,12 @@ importers:
       '@astrojs/tailwind':
         specifier: 5.1.0
         version: 5.1.0(astro@4.3.5(typescript@5.3.3))(tailwindcss@3.4.1)
+      '@lucide/astro':
+        specifier: 0.563.0
+        version: 0.563.0(astro@4.3.5(typescript@5.3.3))
       astro:
         specifier: 4.3.5
         version: 4.3.5(typescript@5.3.3)
-      lucide-astro:
-        specifier: 0.323.0
-        version: 0.323.0(astro@4.3.5(typescript@5.3.3))
       tailwindcss:
         specifier: 3.4.1
         version: 3.4.1
@@ -356,6 +356,11 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.23':
     resolution: {integrity: sha512-9/4foRoUKp8s96tSkh8DlAAc5A0Ty8vLXld+l9gjKKY6ckwI8G15f0hskGmuLZu78ZlGa1vtsfOa+lnB4vG6Jg==}
+
+  '@lucide/astro@0.563.0':
+    resolution: {integrity: sha512-X9fNJvRR6pLJfkIEAFQkizWaNVvcduunJoFyR3fwPu30Y6jOu5S9k4k7HTSk3ZrEfqK2eFEqrBqqWH4fwSNKCg==}
+    peerDependencies:
+      astro: ^4 || ^5
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1193,11 +1198,6 @@ packages:
   lru-cache@6.0.0:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
-
-  lucide-astro@0.323.0:
-    resolution: {integrity: sha512-xkQr/MiFB4mK9Kto7/6B7AoV5EiMNNCH0WYrh5XGkVJprh5kKoQne8zkpvUTchhLRTr4C2NN9Uh3ge9E7igYvg==}
-    peerDependencies:
-      astro: '>=2.7.1'
 
   magic-string@0.30.7:
     resolution: {integrity: sha512-8vBuFF/I/+OSLRmdf2wwFCJCz+nSn0m6DPvGH1fS/KiQoSaR+sETbov0eIk9KhEKy8CYqIkIAnbohxT/4H0kuA==}
@@ -2503,6 +2503,10 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
 
+  '@lucide/astro@0.563.0(astro@4.3.5(typescript@5.3.3))':
+    dependencies:
+      astro: 4.3.5(typescript@5.3.3)
+
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -3421,10 +3425,6 @@ snapshots:
   lru-cache@6.0.0:
     dependencies:
       yallist: 4.0.0
-
-  lucide-astro@0.323.0(astro@4.3.5(typescript@5.3.3)):
-    dependencies:
-      astro: 4.3.5(typescript@5.3.3)
 
   magic-string@0.30.7:
     dependencies:

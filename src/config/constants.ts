@@ -37,7 +37,7 @@ import {
   Puzzle,
   Split,
   UtilityPole
-} from 'lucide-astro'
+} from '@lucide/astro'
 
 export const navLinks = [
   {

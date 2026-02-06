@@ -1,5 +1,5 @@
 ---
-import { ArrowDown, ArrowRight, Menu } from 'lucide-astro'
+import { ArrowDown, ArrowRight, Menu } from '@lucide/astro'
 import { contactLinks, navLinks } from '@/config/constants'
 ---
 
@@ -8,8 +8,7 @@ import { contactLinks, navLinks } from '@/config/constants'
   class='w-full bg-gray-800 text-white text-center fixed top-0 left-0 items-center justify-center gap-4 h-8 opacity-0 pointer-events-none flex focus:opacity-100 focus:pointer-events-auto'>
   Pasar al contenido principal <ArrowDown />
 </a>
-<div
-  class='bg-primary relative z-[100] text-[0.8rem] px-[5%] h-9 text-white overflow-hidden'>
+<div class='bg-primary relative z-[100] text-[0.8rem] px-[5%] h-9 text-white overflow-hidden'>
   <div
     class='items-center justify-between flex gap-4 h-full max-w-6xl mx-auto overflow-x-auto scrollbar-hidden lg:justify-center lg:gap-10'>
     {
@@ -24,10 +23,8 @@ import { contactLinks, navLinks } from '@/config/constants'
 
 <header
   class='bg-white w-full h-[45px] shadow-lg flex items-center justify-center sticky top-0 left-0 z-[100] overflow-x-clip xl:h-[50px]'>
-  <div
-    class='h-full relative w-full lg:flex lg:justify-between lg:w-11/12 lg:mx-auto lg:max-w-6xl'>
-    <div
-      class='h-full relative z-50 flex items-center w-11/12 lg:w-auto lg:m-0 mx-auto container'>
+  <div class='h-full relative w-full lg:flex lg:justify-between lg:w-11/12 lg:mx-auto lg:max-w-6xl'>
+    <div class='h-full relative z-50 flex items-center w-11/12 lg:w-auto lg:m-0 mx-auto container'>
       <a href='/' class='h-full flex items-center'>
         <img
           src='/logotipo-horizontal.svg'

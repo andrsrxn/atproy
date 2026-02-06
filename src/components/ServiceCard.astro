@@ -1,6 +1,6 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
-import { ArrowRight } from 'lucide-astro'
+import { ArrowRight } from '@lucide/astro'
 
 interface Props extends HTMLAttributes<'article'> {
   imageUrl: string
@@ -19,9 +19,7 @@ const {
 } = Astro.props
 ---
 
-<article
-  class={`service-card rounded-md relative group overflow-hidden ${classes}`}
-  {...props}>
+<article class={`service-card rounded-md relative group overflow-hidden ${classes}`} {...props}>
   <a href={`/servicios/#${slug}`}>
     <img
       loading='lazy'
