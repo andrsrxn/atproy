@@ -9,11 +9,9 @@ import {
 import {
   ImagenCarretera,
   ImagenEquipo,
-  ImagenGraficos,
   ImagenMaqueta,
   ImagenPaneles,
   ImagenPavimento,
-  ImagenPlanos,
   ImagenSubestacion,
   ImagenTierra1,
   ImagenUrbanizacion,
@@ -37,7 +35,7 @@ import {
   Puzzle,
   Split,
   UtilityPole
-} from '@lucide/astro'
+} from 'lucide-astro'
 
 export const navLinks = [
   {
@@ -295,27 +293,6 @@ export const featuredServices = [
     image: ImagenUrbanizacion1,
     slug: 'civiles'
   },
-]
-
-export const featuredSpecifications = [
-  {
-    title: 'Lorem ipsum dolor',
-    description:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, natus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, voluptate?',
-    image: ImagenGraficos
-  },
-  {
-    title: 'Lorem ipsum dolor',
-    description:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, natus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, voluptate?',
-    image: ImagenPlanos
-  },
-  {
-    title: 'Lorem ipsum dolor',
-    description:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, natus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, voluptate?',
-    image: ImagenEquipo
-  }
 ]
 
 export const projects = [
