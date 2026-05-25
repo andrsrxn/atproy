@@ -2,7 +2,6 @@
 import CookieBanner from '@/components/CookieBanner.astro'
 import Footer from '@/components/globals/Footer.astro'
 import Header from '@/components/globals/Header.astro'
-import { ViewTransitions } from 'astro:transitions'
 interface Props {
   title: string
   description: string
@@ -148,7 +147,7 @@ const { title, description, schema: PageSchema, cookies = true } = Astro.props
         <script type='application/ld+json' set:html={JSON.stringify(PageSchema, null, 2)} />
       )
     }
-    <ViewTransitions />
+    
   </head>
   <body class='bg-gray-100 flex flex-col min-h-dvh overflow-x-clip relative'>
     <!-- Google Tag Manager (noscript) -->
@@ -170,6 +169,6 @@ const { title, description, schema: PageSchema, cookies = true } = Astro.props
     </main>
     <Footer />
 
-    {cookies && <CookieBanner />}
+    {cookies && <CookieBanner  />}
   </body>
 </html>
