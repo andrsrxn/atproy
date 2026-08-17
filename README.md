@@ -4,6 +4,8 @@
 
 Demo Static Website for showcase main information.
 
+![Banner website](https://res.cloudinary.com/dq5nfyajn/image/upload/v1765561943/banner-small_oesghu.webp)
+
 ## Sections
 
 - Home
